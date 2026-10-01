@@ -108,8 +108,8 @@
           <!-- Parents of the Groom -->
           <div class="parent-card groom-parents">
             <span class="parent-role">PADRES DEL NOVIO</span>
-            <p class="parent-name">Luz Del Águila Del Águila</p>
-            <p class="parent-name">Enrry López Valles</p>
+            <p class="parent-name">Ana Cecilia del Aguila Pinedo</p>
+            <p class="parent-name">Enry López Ruiz</p>
           </div>
         </div>
       </section>
@@ -328,24 +328,29 @@
         <h2 class="script-title">Nuestra Galería</h2>
 
         <div class="gallery-photo-frame">
-          <ImagePlaceholder 
-            :initialSrc="galleryPhoto"
-            label="Foto Galería Novios"
-            sublabel="Katherine & Enrry"
-            aspectRatio="3/4"
-            shape="rect"
-            borderStyle="rose"
-            @update:image="galleryPhoto = $event"
-          />
+          <transition name="slide-fade" mode="out-in">
+            <div :key="galleryPhoto" class="gallery-slide-wrapper">
+              <ImagePlaceholder 
+                :initialSrc="galleryPhoto"
+                label="Foto Galería Novios"
+                sublabel="Katherine & Enrry"
+                aspectRatio="3/4"
+                shape="rect"
+                borderStyle="rose"
+                @update:image="galleryPhoto = $event"
+              />
+            </div>
+          </transition>
         </div>
 
         <!-- Additional Photo Grid Carousel -->
         <div class="mini-gallery-grid">
           <div 
-            v-for="(imgSrc, idx) in extraGalleryImages" 
+            v-for="(imgSrc, idx) in allGalleryImages" 
             :key="idx" 
             class="mini-gallery-item"
-            @click="galleryPhoto = imgSrc"
+            :class="{ 'is-active': galleryPhoto === imgSrc }"
+            @click="selectGalleryPhoto(imgSrc, idx)"
           >
             <img :src="imgSrc" alt="Momento Katherine y Enrry" />
           </div>
@@ -413,7 +418,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import ImagePlaceholder from './ImagePlaceholder.vue';
 import AudioPlayer from './AudioPlayer.vue';
 import RsvpModal from './RsvpModal.vue';
@@ -425,15 +430,40 @@ const heroPhotoMain = ref(`${base}images/opt__DSC6406.jpg`);
 const heroPhotoOverlay = ref(`${base}images/opt__DSC5761.jpg`);
 const saveDatePhoto = ref(`${base}images/opt__DSC6015.jpg`);
 const venuePhoto = ref(`${base}images/opt__DSC6115.jpg`);
-const galleryPhoto = ref(`${base}images/opt__DSC5516.jpg`);
 const audioPath = ref('');
 
-const extraGalleryImages = [
+const allGalleryImages = [
+  `${base}images/opt__DSC5516.jpg`,
   `${base}images/opt__DSC5121.jpg`,
   `${base}images/opt__DSC5525.jpg`,
   `${base}images/opt__DSC6325.jpg`,
   `${base}images/opt__DSC5112.jpg`
 ];
+
+const galleryIndex = ref(0);
+const galleryPhoto = ref(allGalleryImages[0]);
+let galleryTimer = null;
+
+const startGalleryTimer = () => {
+  stopGalleryTimer();
+  galleryTimer = setInterval(() => {
+    galleryIndex.value = (galleryIndex.value + 1) % allGalleryImages.length;
+    galleryPhoto.value = allGalleryImages[galleryIndex.value];
+  }, 5000);
+};
+
+const stopGalleryTimer = () => {
+  if (galleryTimer) {
+    clearInterval(galleryTimer);
+    galleryTimer = null;
+  }
+};
+
+const selectGalleryPhoto = (imgSrc, idx) => {
+  galleryPhoto.value = imgSrc;
+  galleryIndex.value = idx;
+  startGalleryTimer();
+};
 
 const guestName = ref('Familia / Invitado Especial');
 const adultPasses = ref(2);
@@ -443,12 +473,59 @@ const isRsvpModalOpen = ref(false);
 
 const mapsUrl = 'https://maps.app.goo.gl/KA3CrvUT6CtQRopn7?g_st=awb';
 
+let scrollListener = null;
+
 onMounted(() => {
+  startGalleryTimer();
+
   if (typeof window !== 'undefined') {
     const params = new URLSearchParams(window.location.search);
     if (params.has('invitado')) guestName.value = params.get('invitado');
     if (params.has('adultos')) adultPasses.value = parseInt(params.get('adultos')) || 2;
     if (params.has('ninos')) childPasses.value = parseInt(params.get('ninos')) || 0;
+
+    // Scroll Reveal Effect via IntersectionObserver
+    if ('IntersectionObserver' in window) {
+      const observerOptions = {
+        threshold: 0.12,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, observerOptions);
+
+      const elementsToReveal = document.querySelectorAll('.card-section, .guest-pass-card');
+      elementsToReveal.forEach((el) => {
+        el.classList.add('reveal-on-scroll');
+        observer.observe(el);
+      });
+    } else {
+      document.querySelectorAll('.card-section, .guest-pass-card').forEach((el) => {
+        el.classList.add('is-visible');
+      });
+    }
+
+    // Parallax background texture on scroll
+    const paperBg = document.querySelector('.fondo-papel-capa');
+    scrollListener = () => {
+      if (paperBg) {
+        const scrollY = window.scrollY;
+        paperBg.style.transform = `translateY(${scrollY * 0.06}px)`;
+      }
+    };
+    window.addEventListener('scroll', scrollListener, { passive: true });
+  }
+});
+
+onUnmounted(() => {
+  stopGalleryTimer();
+  if (typeof window !== 'undefined' && scrollListener) {
+    window.removeEventListener('scroll', scrollListener);
   }
 });
 </script>
@@ -767,6 +844,7 @@ onMounted(() => {
   flex: 1;
   display: flex;
   align-items: center;
+  transform: translateY(12px);
 }
 
 .date-side.left-side {
@@ -782,6 +860,7 @@ onMounted(() => {
 .date-day-name, .date-month-name {
   font-size: 1.1rem;
   letter-spacing: 0.12em;
+  line-height: 1;
 }
 
 .date-day-num {
@@ -797,6 +876,7 @@ onMounted(() => {
 .date-divider {
   color: #E28E8C;
   font-size: 1.4rem;
+  line-height: 1;
 }
 
 .date-year {
@@ -1056,12 +1136,35 @@ onMounted(() => {
 .gallery-photo-frame {
   width: 100%;
   margin-bottom: 0.75rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-slide-wrapper {
+  width: 100%;
+  will-change: transform, opacity;
+}
+
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: opacity 0.45s cubic-bezier(0.25, 1, 0.5, 1), 
+              transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.slide-fade-enter-from {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+.slide-fade-leave-to {
+  opacity: 0;
+  transform: translateX(-40px);
 }
 
 .mini-gallery-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.4rem;
   width: 100%;
   margin-top: 0.5rem;
 }
@@ -1070,14 +1173,16 @@ onMounted(() => {
   aspect-ratio: 1/1;
   border-radius: 6px;
   overflow: hidden;
-  border: 1.5px solid rgba(226, 142, 140, 0.5);
+  border: 1.5px solid rgba(226, 142, 140, 0.4);
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 
-.mini-gallery-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(240, 199, 197, 0.4);
+.mini-gallery-item:hover,
+.mini-gallery-item.is-active {
+  transform: scale(1.06);
+  border-color: #9E4B49;
+  box-shadow: 0 3px 10px rgba(158, 75, 73, 0.4);
 }
 
 .mini-gallery-item img {
@@ -1088,10 +1193,10 @@ onMounted(() => {
 
 .rsvp-section {
   padding: 1.75rem 1.25rem;
-  background: rgba(240, 199, 197, 0.38);
+  background: rgba(127, 96, 0, 0.12);
   border-radius: 16px;
-  border: 1.5px solid rgba(226, 142, 140, 0.6);
-  box-shadow: inset 0 0 20px rgba(240, 199, 197, 0.25);
+  border: 1.5px solid #7F6000;
+  box-shadow: inset 0 0 20px rgba(127, 96, 0, 0.1), 0 4px 15px rgba(127, 96, 0, 0.08);
 }
 
 .rsvp-text {
@@ -1110,8 +1215,8 @@ onMounted(() => {
   justify-content: center;
   gap: 0.6rem;
   padding: 0.75rem 1rem;
-  background: rgba(255, 255, 255, 0.75);
-  border: 1px dashed #E28E8C;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px dashed #7F6000;
   border-radius: 8px;
   font-family: var(--font-sans);
   font-size: 0.78rem;
@@ -1122,7 +1227,7 @@ onMounted(() => {
 }
 
 .planner-info-box strong {
-  color: #9E4B49;
+  color: #7F6000;
   font-weight: 700;
 }
 
@@ -1175,5 +1280,27 @@ onMounted(() => {
   color: #9E4B49;
   letter-spacing: 0.2em;
   margin-top: 0.25rem;
+}
+
+/* ELEGANT SCROLL REVEAL & PARALLAX ANIMATION */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(35px) scale(0.97);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 </style>
