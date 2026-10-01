@@ -38,7 +38,6 @@
       <section class="card-section hero-section">
         <!-- Top Monogram & Names Header -->
         <div class="top-header">
-          <span class="rose-pill top-pill">NUESTRA BODA</span>
           <h1 class="couple-names">KATHERINE & ENRRY</h1>
           <div class="header-divider">
             <span class="line"></span>
@@ -85,31 +84,10 @@
             “DESDE QUE NUESTROS CAMINOS SE CRUZARON, SUPIMOS QUE LA VIDA TENÍA PREPARADO ALGO ESPECIAL PARA NOSOTROS. HOY QUEREMOS COMPARTIR CONTIGO ESE SUEÑO HECHO REALIDAD. NUESTRA UNIÓN, SÍMBOLO DEL AMOR, LA CONFIANZA Y LA FELICIDAD QUE HEMOS CONSTRUIDO JUNTOS.”
           </p>
         </div>
-
-        <!-- GUEST PASS CARD (Pases de Invitados) -->
-        <div class="guest-pass-card">
-          <div class="pass-header">
-            <span class="pass-title">PASE DE INVITACIÓN ESPECIAL</span>
-          </div>
-          <div class="pass-body">
-            <h3 class="guest-family">{{ guestName }}</h3>
-            <div class="pass-details">
-              <div class="pass-badge brown-badge">
-                <span class="badge-label">Adultos:</span>
-                <span class="badge-value">{{ adultPasses }}</span>
-              </div>
-              <div class="pass-badge rose-badge">
-                <span class="badge-label">Niños:</span>
-                <span class="badge-value">{{ childPasses }}</span>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
       <!-- SECTION 2: NUESTROS PADRES -->
       <section class="card-section parents-section">
-        <div class="section-badge-pill rose-pill">FAMILIAS</div>
         <h2 class="script-title">Nuestros padres</h2>
         
         <div class="parents-grid">
@@ -138,16 +116,19 @@
 
       <!-- SECTION 3: GUARDA LA FECHA (SAVE THE DATE) -->
       <section class="card-section save-date-section">
-        <div class="section-badge-pill rose-pill">AGENDA</div>
         <h2 class="script-title">Guarda la fecha</h2>
 
         <!-- Date Banner -->
         <div class="date-banner">
-          <span class="date-day-name">SÁBADO</span>
-          <span class="date-divider">•</span>
+          <div class="date-side left-side">
+            <span class="date-day-name">SÁBADO</span>
+            <span class="date-divider">•</span>
+          </div>
           <span class="date-day-num">21</span>
-          <span class="date-divider">•</span>
-          <span class="date-month-name">NOVIEMBRE</span>
+          <div class="date-side right-side">
+            <span class="date-divider">•</span>
+            <span class="date-month-name">NOVIEMBRE</span>
+          </div>
         </div>
         <div class="date-year">2026</div>
 
@@ -171,7 +152,6 @@
 
       <!-- SECTION 4: RECEPCIÓN & CEREMONIA -->
       <section class="card-section reception-section">
-        <div class="section-badge-pill rose-pill">UBICACIÓN</div>
         <h2 class="script-title">Recepción y Ceremonia</h2>
 
         <!-- Clinking Glasses Icon -->
@@ -271,7 +251,6 @@
 
       <!-- SECTION 7: ITINERARIO DE BODA (TIMELINE) -->
       <section class="card-section timeline-section">
-        <div class="section-badge-pill rose-pill">PROGRAMA</div>
         <h2 class="script-title">Itinerario de Boda</h2>
 
         <div class="timeline-container">
@@ -346,7 +325,6 @@
 
       <!-- SECTION 8: GALLERY PHOTO SLIDER / GRID -->
       <section class="card-section gallery-section">
-        <div class="section-badge-pill rose-pill">GALERÍA</div>
         <h2 class="script-title">Nuestra Galería</h2>
 
         <div class="gallery-photo-frame">
@@ -373,6 +351,26 @@
           </div>
         </div>
       </section>
+
+      <!-- GUEST PASS CARD (Pases de Invitados) -->
+      <div class="guest-pass-card">
+        <div class="pass-header">
+          <span class="pass-title">PASE DE INVITACIÓN ESPECIAL</span>
+        </div>
+        <div class="pass-body">
+          <h3 class="guest-family">{{ guestName }}</h3>
+          <div class="pass-details">
+            <div class="pass-badge brown-badge">
+              <span class="badge-label">Adultos:</span>
+              <span class="badge-value">{{ adultPasses }}</span>
+            </div>
+            <div class="pass-badge rose-badge">
+              <span class="badge-label">Niños:</span>
+              <span class="badge-value">{{ childPasses }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- SECTION 9: CONFIRMAR ASISTENCIA (RSVP) -->
       <section class="card-section rsvp-section">
@@ -648,7 +646,7 @@ onMounted(() => {
   padding: 1.1rem;
   background: rgba(255, 255, 255, 0.88);
   box-shadow: 0 4px 15px rgba(127, 96, 0, 0.08);
-  margin-top: 1rem;
+  text-align: center;
 }
 
 .pass-header {
@@ -759,34 +757,57 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
+  width: 100%;
   font-family: var(--font-serif);
   color: var(--color-brown);
   margin-bottom: 0.25rem;
 }
 
+.date-side {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.date-side.left-side {
+  justify-content: flex-end;
+  gap: 0.4rem;
+}
+
+.date-side.right-side {
+  justify-content: flex-start;
+  gap: 0.4rem;
+}
+
 .date-day-name, .date-month-name {
-  font-size: 1.15rem;
-  letter-spacing: 0.15em;
+  font-size: 1.1rem;
+  letter-spacing: 0.12em;
 }
 
 .date-day-num {
-  font-size: 2.3rem;
+  font-size: 4.8rem;
   font-weight: 700;
   color: #9E4B49;
   line-height: 1;
+  padding: 0 0.5rem;
+  flex: 0 0 auto;
+  text-align: center;
 }
 
 .date-divider {
   color: #E28E8C;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 .date-year {
   font-family: var(--font-sans);
-  font-size: 1rem;
-  letter-spacing: 0.2em;
-  color: var(--color-text-muted);
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--color-brown);
+  text-align: center;
+  width: 100%;
+  margin-top: 0.2rem;
   margin-bottom: 1.25rem;
 }
 
