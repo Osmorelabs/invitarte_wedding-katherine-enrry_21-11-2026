@@ -211,7 +211,6 @@
 
       <!-- SECTION 5: DRESS CODE -->
       <section class="card-section dresscode-section">
-        <div class="section-badge-pill rose-pill">VESTIMENTA</div>
         <h2 class="script-title">Dress Code</h2>
 
         <!-- Suit & Dress Silhouettes -->
@@ -235,16 +234,8 @@
 
       <!-- SECTION 6: FLORAL MONOGRAM FRAME -->
       <section class="card-section monogram-section">
-        <div class="monogram-frame">
-          <svg class="wreath-svg" viewBox="0 0 200 200" fill="none">
-            <circle cx="100" cy="100" r="78" stroke="#7F6000" stroke-width="1.5" stroke-dasharray="3 3" />
-            <path d="M 35 100 A 65 65 0 0 1 165 100" stroke="#E28E8C" stroke-width="2" />
-            <path d="M 35 100 A 65 65 0 0 0 165 100" stroke="#633917" stroke-width="2" />
-            <circle cx="35" cy="100" r="6" fill="#F0C7C5" stroke="#E28E8C" stroke-width="1" />
-            <circle cx="165" cy="100" r="6" fill="#F0C7C5" stroke="#E28E8C" stroke-width="1" />
-            <circle cx="100" cy="35" r="6" fill="#F0C7C5" stroke="#E28E8C" stroke-width="1" />
-            <circle cx="100" cy="165" r="6" fill="#F0C7C5" stroke="#E28E8C" stroke-width="1" />
-          </svg>
+        <div class="monogram-roses-container">
+          <img :src="rosesTopImg" alt="Guirnalda Rosas Superior" class="roses-top-img" />
           <div class="monogram-text">K & E</div>
         </div>
       </section>
@@ -312,14 +303,9 @@
           </div>
         </div>
 
-        <!-- Bottom Floral Arch SVG -->
+        <!-- Bottom Roses Arch -->
         <div class="bottom-wreath">
-          <svg viewBox="0 0 240 60" fill="none">
-            <path d="M20 50 C80 10, 160 10, 220 50" stroke="#E28E8C" stroke-width="1.5" />
-            <circle cx="120" cy="22" r="4" fill="#F0C7C5" stroke="#E28E8C" stroke-width="1" />
-            <circle cx="80" cy="28" r="3" fill="#7F6000" />
-            <circle cx="160" cy="28" r="3" fill="#7F6000" />
-          </svg>
+          <img :src="rosesBottomImg" alt="Guirnalda Rosas Inferior" class="roses-bottom-img" />
         </div>
       </section>
 
@@ -379,7 +365,6 @@
 
       <!-- SECTION 9: CONFIRMAR ASISTENCIA (RSVP) -->
       <section class="card-section rsvp-section">
-        <div class="section-badge-pill rose-pill">RSVP</div>
         <h2 class="script-title">Confirmar Asistencia</h2>
 
         <p class="rsvp-text">
@@ -430,6 +415,8 @@ const heroPhotoMain = ref(`${base}images/opt__DSC6406.jpg`);
 const heroPhotoOverlay = ref(`${base}images/opt__DSC5761.jpg`);
 const saveDatePhoto = ref(`${base}images/opt__DSC6015.jpg`);
 const venuePhoto = ref(`${base}images/opt__DSC6115.jpg`);
+const rosesTopImg = ref(`${base}images/roses_top.png`);
+const rosesBottomImg = ref(`${base}images/roses_bottom.png`);
 const audioPath = ref('');
 
 const allGalleryImages = [
@@ -800,12 +787,7 @@ onUnmounted(() => {
   border-radius: 10px;
 }
 
-.bride-parents {
-  background: rgba(240, 199, 197, 0.32);
-  border: 1.5px solid rgba(226, 142, 140, 0.6);
-  box-shadow: 0 3px 10px rgba(240, 199, 197, 0.2);
-}
-
+.bride-parents,
 .groom-parents {
   background: rgba(99, 57, 23, 0.06);
   border: 1px solid rgba(127, 96, 0, 0.25);
@@ -818,10 +800,6 @@ onUnmounted(() => {
   letter-spacing: 0.15em;
   color: var(--color-brown, #633917);
   margin-bottom: 0.2rem;
-}
-
-.bride-role {
-  color: #9E4B49;
 }
 
 .parent-name {
@@ -1010,29 +988,34 @@ onUnmounted(() => {
   padding: 0.5rem 0;
 }
 
-.monogram-frame {
+.monogram-roses-container {
   position: relative;
-  width: 130px;
-  height: 130px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.wreath-svg {
-  position: absolute;
-  inset: 0;
+.roses-top-img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  display: block;
 }
 
 .monogram-text {
   font-family: var(--font-script);
-  font-size: 2.5rem;
-  color: var(--color-gold, #7F6000);
-  position: relative;
+  font-size: 3.2rem;
+  color: var(--color-brown, #633917);
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 2;
-  text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+  white-space: nowrap;
+  text-shadow: 0 1px 4px rgba(253, 251, 247, 0.95), 0 0 10px rgba(253, 251, 247, 0.8);
 }
 
 .timeline-container {
@@ -1125,8 +1108,17 @@ onUnmounted(() => {
 }
 
 .bottom-wreath {
-  width: 60%;
-  margin: 0.5rem auto 0;
+  width: 100%;
+  max-width: 100%;
+  margin: 1.5rem auto 0;
+  display: flex;
+  justify-content: center;
+}
+
+.roses-bottom-img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .gallery-section {
