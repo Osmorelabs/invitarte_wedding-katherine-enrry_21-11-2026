@@ -421,18 +421,20 @@ import AudioPlayer from './AudioPlayer.vue';
 import RsvpModal from './RsvpModal.vue';
 import CountdownTimer from './CountdownTimer.vue';
 
-const heroPhotoMain = ref('/images/opt__DSC6406.jpg');
-const heroPhotoOverlay = ref('/images/opt__DSC5761.jpg');
-const saveDatePhoto = ref('/images/opt__DSC6015.jpg');
-const venuePhoto = ref('/images/opt__DSC6115.jpg');
-const galleryPhoto = ref('/images/opt__DSC5516.jpg');
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const heroPhotoMain = ref(`${base}images/opt__DSC6406.jpg`);
+const heroPhotoOverlay = ref(`${base}images/opt__DSC5761.jpg`);
+const saveDatePhoto = ref(`${base}images/opt__DSC6015.jpg`);
+const venuePhoto = ref(`${base}images/opt__DSC6115.jpg`);
+const galleryPhoto = ref(`${base}images/opt__DSC5516.jpg`);
 const audioPath = ref('');
 
 const extraGalleryImages = [
-  '/images/opt__DSC5121.jpg',
-  '/images/opt__DSC5525.jpg',
-  '/images/opt__DSC6325.jpg',
-  '/images/opt__DSC5112.jpg'
+  `${base}images/opt__DSC5121.jpg`,
+  `${base}images/opt__DSC5525.jpg`,
+  `${base}images/opt__DSC6325.jpg`,
+  `${base}images/opt__DSC5112.jpg`
 ];
 
 const guestName = ref('Familia / Invitado Especial');
