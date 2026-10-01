@@ -12,7 +12,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.3.5"
+    "@astrojs/vue": "^7.0.3",
+    "@lucide/vue": "^1.49.0",
+    "astro": "^7.3.5",
+    "lucide-vue-next": "^1.0.0",
+    "vue": "^3.5.43"
   },
   "allowScripts": {
     "esbuild": true
