@@ -150,9 +150,9 @@
         </div>
       </section>
 
-      <!-- SECTION 4: RECEPCIÓN & CEREMONIA -->
+      <!-- SECTION 4: CEREMONIA & RECEPCIÓN -->
       <section class="card-section reception-section">
-        <h2 class="script-title">Recepción y Ceremonia</h2>
+        <h2 class="script-title">Ceremonia</h2>
 
         <!-- Clinking Glasses Icon -->
         <div class="section-icon">
@@ -167,12 +167,12 @@
         <div class="venue-info">
           <div class="schedule-box">
             <div class="schedule-item">
-              <span class="time-tag">12:00 P.M.</span>
-              <span class="event-label">CEREMONIA CIVIL</span>
+              <span class="time-tag">11:00 A.M.</span>
+              <span class="event-label">CEREMONIA</span>
             </div>
             <div class="schedule-divider"></div>
             <div class="schedule-item">
-              <span class="time-tag">11:00 A.M.</span>
+              <span class="time-tag">12:00 P.M.</span>
               <span class="event-label">RECEPCIÓN</span>
             </div>
           </div>
