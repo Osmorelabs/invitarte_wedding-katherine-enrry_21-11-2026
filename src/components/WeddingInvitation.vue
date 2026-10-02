@@ -168,12 +168,12 @@
           <div class="schedule-box">
             <div class="schedule-item">
               <span class="time-tag">11:00 A.M.</span>
-              <span class="event-label">CEREMONIA</span>
+              <span class="event-label">RECEPCIÓN</span>
             </div>
             <div class="schedule-divider"></div>
             <div class="schedule-item">
               <span class="time-tag">12:00 P.M.</span>
-              <span class="event-label">RECEPCIÓN</span>
+              <span class="event-label">CEREMONIA</span>
             </div>
           </div>
           
