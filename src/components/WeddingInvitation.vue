@@ -272,8 +272,8 @@
           <!-- Timeline Item 3 -->
           <div class="timeline-item left">
             <div class="timeline-content">
-              <span class="timeline-time">01:30 P.M.</span>
-              <span class="timeline-title">CENA Y BRINDIS</span>
+              <span class="timeline-time">02:00 P.M.</span>
+              <span class="timeline-title">ALMUERZO</span>
             </div>
             <div class="timeline-node rose-node">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
@@ -287,14 +287,14 @@
             </div>
             <div class="timeline-content">
               <span class="timeline-time">03:30 P.M.</span>
-              <span class="timeline-title">FIESTA Y BAILE</span>
+              <span class="timeline-title">INICIO DE PROTOCOLO</span>
             </div>
           </div>
 
           <!-- Timeline Item 5 -->
           <div class="timeline-item left">
             <div class="timeline-content">
-              <span class="timeline-time">08:00 P.M.</span>
+              <span class="timeline-time">07:00 P.M.</span>
               <span class="timeline-title">NOS DESPEDIMOS</span>
             </div>
             <div class="timeline-node rose-node">
