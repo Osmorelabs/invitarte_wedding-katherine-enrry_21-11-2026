@@ -21,6 +21,8 @@
       </defs>
     </svg>
 
+
+
     <!-- Contenedor Principal de la Invitación Móvil -->
     <main class="mobile-card-container">
       
@@ -75,8 +77,8 @@
           </div>
         </div>
 
-        <!-- Audio Player (Hidden) -->
-        <!-- <AudioPlayer /> -->
+        <!-- Music Player -->
+        <AudioPlayer :audioSrc="audioPath" />
 
         <!-- Romantic Quote / Declaration -->
         <div class="romantic-quote-box">
@@ -417,7 +419,9 @@ const saveDatePhoto = ref(`${base}images/opt__DSC6015.jpg`);
 const venuePhoto = ref(`${base}images/opt__DSC6115.jpg`);
 const rosesTopImg = ref(`${base}images/roses_top.png`);
 const rosesBottomImg = ref(`${base}images/roses_bottom.png`);
-const audioPath = ref('');
+const audioPath = ref(`${base}audio/Arbor North - You, Me, and Jesus (Official Lyric Video).mp3`);
+
+
 
 const allGalleryImages = [
   `${base}images/opt__DSC5516.jpg`,
