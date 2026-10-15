@@ -10,6 +10,7 @@
       :src="src" 
       :alt="alt || label || 'Foto de la boda'" 
       class="placeholder-img"
+      :style="{ objectPosition: objectPosition }"
       @error="handleImgError"
     />
     
@@ -71,6 +72,10 @@ const props = defineProps({
   borderStyle: {
     type: String,
     default: 'gold' // 'gold', 'sage', 'none'
+  },
+  objectPosition: {
+    type: String,
+    default: 'center'
   }
 });
 

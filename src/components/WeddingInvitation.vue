@@ -83,7 +83,10 @@
         <!-- Romantic Quote / Declaration -->
         <div class="romantic-quote-box">
           <p class="quote-text">
-            “DESDE QUE NUESTROS CAMINOS SE CRUZARON, SUPIMOS QUE LA VIDA TENÍA PREPARADO ALGO ESPECIAL PARA NOSOTROS. HOY QUEREMOS COMPARTIR CONTIGO ESE SUEÑO HECHO REALIDAD. NUESTRA UNIÓN, SÍMBOLO DEL AMOR, LA CONFIANZA Y LA FELICIDAD QUE HEMOS CONSTRUIDO JUNTOS.”
+            El Señor, hizo coincidir nuestros caminos en Cusco y nos regaló una bonita amistad. Sin buscarlo, esa amistad fue creciendo y se convirtió en amor. Desde entonces hemos aprendido a caminar juntos, compartir sueños, desafíos y descubrir un propósito común. Hoy volvemos al lugar donde comenzó nuestra historia para iniciar una nueva etapa, construyendo un hogar con Cristo en el centro.
+          </p>
+          <p class="quote-verse">
+            “Si el SEÑOR no edifica la casa, en vano trabajan los que la edifican; si el SEÑOR no guarda la ciudad, en vano vela la guardia” Salmo 127:1
           </p>
         </div>
       </section>
@@ -240,6 +243,9 @@
           <img :src="rosesTopImg" alt="Guirnalda Rosas Superior" class="roses-top-img" />
           <div class="monogram-text">K & E</div>
         </div>
+        <p class="monogram-verse">
+          “Por mi parte, mi casa y yo serviremos al Señor.” Josué 24:15
+        </p>
       </section>
 
       <!-- SECTION 7: ITINERARIO DE BODA (TIMELINE) -->
@@ -365,7 +371,131 @@
         </div>
       </div>
 
-      <!-- SECTION 9: CONFIRMAR ASISTENCIA (RSVP) -->
+      <!-- SECTION 9: REGALOS (GIFTS) -->
+      <section class="card-section gifts-section">
+        <h2 class="script-title">Regalos</h2>
+
+        <div class="section-icon gift-icon-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#633917" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="8" width="18" height="4" rx="1"/>
+            <path d="M12 8v13"/>
+            <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/>
+            <path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 4.8 0 0 1 12 8a4.8 4.8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/>
+          </svg>
+        </div>
+
+        <p class="gifts-phrase">
+          “Tu presencia es nuestro mejor regalo. Si quieres acompañarnos con algo más, sea un detalle, una experiencia o un aporte en efectivo, lo recibiremos con todo el cariño del mundo.”
+        </p>
+
+        <div class="gift-accounts-container">
+          <!-- Yape Card -->
+          <div class="account-card">
+            <div class="account-header">
+              <div class="account-badge yape-badge">
+                <span>YAPE</span>
+              </div>
+              <span class="account-owner">Katherine & Enrry</span>
+            </div>
+            <div class="account-row">
+              <div class="account-info">
+                <span class="account-label">Número de celular</span>
+                <span class="account-number">984 851 184</span>
+              </div>
+              <button 
+                class="copy-btn" 
+                :class="{ 'is-copied': copiedField === 'yape' }"
+                @click="copyToClipboard('984851184', 'yape')"
+                aria-label="Copiar número de Yape"
+              >
+                <span v-if="copiedField === 'yape'" class="copy-feedback">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                  Copiado
+                </span>
+                <span v-else class="copy-action">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                  </svg>
+                  Copiar
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Interbank Card -->
+          <div class="account-card">
+            <div class="account-header">
+              <div class="account-badge bank-badge">
+                <span>INTERBANK</span>
+              </div>
+              <span class="account-owner">Cuenta Soles</span>
+            </div>
+
+            <!-- Cuenta Soles -->
+            <div class="account-row">
+              <div class="account-info">
+                <span class="account-label">Número de cuenta</span>
+                <span class="account-number">3403208431701</span>
+              </div>
+              <button 
+                class="copy-btn" 
+                :class="{ 'is-copied': copiedField === 'cuenta' }"
+                @click="copyToClipboard('3403208431701', 'cuenta')"
+                aria-label="Copiar número de cuenta Interbank"
+              >
+                <span v-if="copiedField === 'cuenta'" class="copy-feedback">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                  Copiado
+                </span>
+                <span v-else class="copy-action">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                  </svg>
+                  Copiar
+                </span>
+              </button>
+            </div>
+
+            <div class="account-divider"></div>
+
+            <!-- CCI -->
+            <div class="account-row">
+              <div class="account-info">
+                <span class="account-label">CCI (Interbancario)</span>
+                <span class="account-number cci-number">00334001320843170176</span>
+              </div>
+              <button 
+                class="copy-btn" 
+                :class="{ 'is-copied': copiedField === 'cci' }"
+                @click="copyToClipboard('00334001320843170176', 'cci')"
+                aria-label="Copiar CCI Interbank"
+              >
+                <span v-if="copiedField === 'cci'" class="copy-feedback">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                  Copiado
+                </span>
+                <span v-else class="copy-action">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                  </svg>
+                  Copiar
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 10: CONFIRMAR ASISTENCIA (RSVP) -->
       <section class="card-section rsvp-section">
         <h2 class="script-title">Confirmar Asistencia</h2>
 
@@ -427,8 +557,7 @@ const allGalleryImages = [
   `${base}images/opt__DSC5516.jpg`,
   `${base}images/opt__DSC5121.jpg`,
   `${base}images/opt__DSC5525.jpg`,
-  `${base}images/opt__DSC6325.jpg`,
-  `${base}images/opt__DSC5112.jpg`
+  `${base}images/opt__DSC6325.jpg`
 ];
 
 const galleryIndex = ref(0);
@@ -463,6 +592,33 @@ const childPasses = ref(0);
 const isRsvpModalOpen = ref(false);
 
 const mapsUrl = 'https://maps.app.goo.gl/KA3CrvUT6CtQRopn7?g_st=awb';
+
+const copiedField = ref('');
+let copyTimeout = null;
+
+const copyToClipboard = async (text, fieldName) => {
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+    }
+    copiedField.value = fieldName;
+    if (copyTimeout) clearTimeout(copyTimeout);
+    copyTimeout = setTimeout(() => {
+      copiedField.value = '';
+    }, 2000);
+  } catch (err) {
+    console.error('Error al copiar:', err);
+  }
+};
 
 let scrollListener = null;
 
@@ -515,6 +671,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   stopGalleryTimer();
+  if (copyTimeout) clearTimeout(copyTimeout);
   if (typeof window !== 'undefined' && scrollListener) {
     window.removeEventListener('scroll', scrollListener);
   }
@@ -587,6 +744,7 @@ onUnmounted(() => {
 .date-banner,
 .venue-info,
 .timeline-container,
+.gifts-section,
 .rsvp-section,
 .invitation-footer {
   position: relative;
@@ -696,14 +854,26 @@ onUnmounted(() => {
 
 .quote-text {
   font-family: var(--font-serif);
-  font-size: 0.85rem;
-  font-weight: 600;
-  line-height: 1.7;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.65;
   color: var(--color-brown, #633917);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
   max-width: 95%;
   margin: 0 auto;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+.quote-verse {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--color-brown, #633917);
+  letter-spacing: 0.01em;
+  max-width: 92%;
+  margin: 1.25rem auto 0;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
 }
 
@@ -1022,6 +1192,20 @@ onUnmounted(() => {
   text-shadow: 0 1px 4px rgba(253, 251, 247, 0.95), 0 0 10px rgba(253, 251, 247, 0.8);
 }
 
+.monogram-verse {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-brown, #633917);
+  letter-spacing: 0.01em;
+  max-width: 90%;
+  margin: 1rem auto 0;
+  line-height: 1.6;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
 .timeline-container {
   position: relative;
   width: 100%;
@@ -1159,8 +1343,8 @@ onUnmounted(() => {
 
 .mini-gallery-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0.4rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
   width: 100%;
   margin-top: 0.5rem;
 }
@@ -1185,6 +1369,166 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* GIFTS SECTION */
+.gifts-section {
+  width: 100%;
+}
+
+.gift-icon-wrap {
+  margin-bottom: 0.75rem;
+}
+
+.gifts-phrase {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-brown, #633917);
+  letter-spacing: 0.01em;
+  max-width: 95%;
+  margin: 0 auto 1.5rem;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+.gift-accounts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.account-card {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(127, 96, 0, 0.28);
+  border-radius: 14px;
+  padding: 1.1rem;
+  box-shadow: 0 4px 15px rgba(127, 96, 0, 0.06);
+  text-align: left;
+}
+
+.account-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(127, 96, 0, 0.15);
+}
+
+.account-badge {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  color: #FFFFFF;
+}
+
+.yape-badge {
+  background: linear-gradient(135deg, #742284, #873399);
+  box-shadow: 0 2px 6px rgba(116, 34, 132, 0.25);
+}
+
+.bank-badge {
+  background: linear-gradient(135deg, #009B3A, #057831);
+  box-shadow: 0 2px 6px rgba(0, 155, 58, 0.25);
+}
+
+.account-owner {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--color-text-muted, #8C7565);
+  font-weight: 500;
+}
+
+.account-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.account-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.account-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted, #8C7565);
+  margin-bottom: 0.15rem;
+}
+
+.account-number {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-brown, #633917);
+  letter-spacing: 0.05em;
+  word-break: break-all;
+}
+
+.account-number.cci-number {
+  font-size: 0.84rem;
+  letter-spacing: 0.03em;
+}
+
+.account-divider {
+  height: 1px;
+  background: rgba(127, 96, 0, 0.12);
+  margin: 0.75rem 0;
+}
+
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.85rem;
+  background: #FAF5EE;
+  border: 1px solid rgba(127, 96, 0, 0.5);
+  border-radius: 8px;
+  color: var(--color-brown, #633917);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.copy-btn:hover {
+  background: #F0E8DC;
+  border-color: #7F6000;
+  transform: translateY(-1px);
+}
+
+.copy-btn:active {
+  transform: translateY(0);
+}
+
+.copy-btn.is-copied {
+  background: #648550;
+  border-color: #648550;
+  color: #FFFFFF;
+}
+
+.copy-feedback,
+.copy-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
 }
 
 .rsvp-section {
