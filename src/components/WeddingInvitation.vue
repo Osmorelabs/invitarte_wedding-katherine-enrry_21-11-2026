@@ -119,7 +119,23 @@
         </div>
       </section>
 
-      <!-- SECTION 3: GUARDA LA FECHA (SAVE THE DATE) -->
+      <!-- SECTION 3: NUESTROS PADRINOS -->
+      <section class="card-section godparents-section">
+        <h2 class="script-title">Nuestros padrinos</h2>
+
+        <div class="godparents-card">
+          <span class="godparent-role">PADRINOS DE BODA</span>
+          <p class="godparent-name">Carlos Fasanando Mendieta</p>
+          <div class="godparent-divider">
+            <span class="divider-line"></span>
+            <span class="divider-heart">✦</span>
+            <span class="divider-line"></span>
+          </div>
+          <p class="godparent-name">Becky Grandez Dávalos</p>
+        </div>
+      </section>
+
+      <!-- SECTION 4: GUARDA LA FECHA (SAVE THE DATE) -->
       <section class="card-section save-date-section">
         <h2 class="script-title">Guarda la fecha</h2>
 
@@ -745,6 +761,7 @@ onUnmounted(() => {
 .venue-info,
 .timeline-container,
 .gifts-section,
+.godparents-section,
 .rsvp-section,
 .invitation-footer {
   position: relative;
@@ -980,6 +997,62 @@ onUnmounted(() => {
   font-family: var(--font-serif);
   font-size: 1.05rem;
   color: var(--color-brown);
+}
+
+/* GODPARENTS SECTION */
+.godparents-section {
+  width: 100%;
+}
+
+.godparents-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 1rem;
+  border-radius: 12px;
+  background: rgba(99, 57, 23, 0.06);
+  border: 1px solid rgba(127, 96, 0, 0.25);
+  box-shadow: 0 4px 12px rgba(127, 96, 0, 0.05);
+}
+
+.godparent-role {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-brown, #633917);
+  margin-bottom: 0.45rem;
+  text-transform: uppercase;
+}
+
+.godparent-name {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-brown, #633917);
+  line-height: 1.35;
+}
+
+.godparent-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 45%;
+  margin: 0.45rem 0;
+}
+
+.godparent-divider .divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(127, 96, 0, 0.4), transparent);
+}
+
+.godparent-divider .divider-heart {
+  font-size: 0.6rem;
+  color: #E28E8C;
 }
 
 .date-banner {
