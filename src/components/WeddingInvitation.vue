@@ -96,11 +96,11 @@
         <h2 class="script-title">Nuestros padres</h2>
         
         <div class="parents-grid">
-          <!-- Parents of the Bride (From instructions.md) -->
-          <div class="parent-card bride-parents">
-            <span class="parent-role bride-role">PADRES DE LA NOVIA</span>
-            <p class="parent-name">Francisco Antonio Gutierrez Condori</p>
-            <p class="parent-name">María Mercedes Otero Aymara</p>
+          <!-- Parents of the Groom -->
+          <div class="parent-card groom-parents">
+            <span class="parent-role">PADRES DEL NOVIO</span>
+            <p class="parent-name">Enry López Ruiz</p>
+            <p class="parent-name">Ana Cecilia del Aguila Pinedo</p>
           </div>
 
           <div class="section-ornament">
@@ -110,11 +110,11 @@
             </svg>
           </div>
 
-          <!-- Parents of the Groom -->
-          <div class="parent-card groom-parents">
-            <span class="parent-role">PADRES DEL NOVIO</span>
-            <p class="parent-name">Enry López Ruiz</p>
-            <p class="parent-name">Ana Cecilia del Aguila Pinedo</p>
+          <!-- Parents of the Bride (From instructions.md) -->
+          <div class="parent-card bride-parents">
+            <span class="parent-role bride-role">PADRES DE LA NOVIA</span>
+            <p class="parent-name">Francisco Antonio Gutierrez Condori</p>
+            <p class="parent-name">María Mercedes Otero Aymara</p>
           </div>
         </div>
       </section>
