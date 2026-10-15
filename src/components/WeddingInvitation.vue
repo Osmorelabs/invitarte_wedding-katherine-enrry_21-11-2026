@@ -40,7 +40,7 @@
       <section class="card-section hero-section">
         <!-- Top Monogram & Names Header -->
         <div class="top-header">
-          <h1 class="couple-names">KATHERINE & ENRRY</h1>
+          <h1 class="couple-names">ENRRY & KATHERINE</h1>
           <div class="header-divider">
             <span class="line"></span>
             <span class="diamond">❖</span>
@@ -55,7 +55,7 @@
             <ImagePlaceholder 
               :initialSrc="heroPhotoMain"
               label="Foto Principal Novios"
-              sublabel="Katherine & Enrry"
+              sublabel="Enrry & Katherine"
               aspectRatio="3/4"
               shape="rect"
               borderStyle="gold"
@@ -99,8 +99,8 @@
           <!-- Parents of the Bride (From instructions.md) -->
           <div class="parent-card bride-parents">
             <span class="parent-role bride-role">PADRES DE LA NOVIA</span>
-            <p class="parent-name">María Mercedes Otero Aymara</p>
             <p class="parent-name">Francisco Antonio Gutierrez Condori</p>
+            <p class="parent-name">María Mercedes Otero Aymara</p>
           </div>
 
           <div class="section-ornament">
@@ -113,8 +113,8 @@
           <!-- Parents of the Groom -->
           <div class="parent-card groom-parents">
             <span class="parent-role">PADRES DEL NOVIO</span>
-            <p class="parent-name">Ana Cecilia del Aguila Pinedo</p>
             <p class="parent-name">Enry López Ruiz</p>
+            <p class="parent-name">Ana Cecilia del Aguila Pinedo</p>
           </div>
         </div>
       </section>
@@ -161,7 +161,7 @@
           <ImagePlaceholder 
             :initialSrc="saveDatePhoto"
             label="Foto Guarda la Fecha"
-            sublabel="Katherine & Enrry - 2026"
+            sublabel="Enrry & Katherine - 2026"
             aspectRatio="3/4"
             shape="rect"
             tornEffect
@@ -257,7 +257,7 @@
       <section class="card-section monogram-section">
         <div class="monogram-roses-container">
           <img :src="rosesTopImg" alt="Guirnalda Rosas Superior" class="roses-top-img" />
-          <div class="monogram-text">K & E</div>
+          <div class="monogram-text">E & K</div>
         </div>
         <p class="monogram-verse">
           “Por mi parte, mi casa y yo serviremos al Señor.” Josué 24:15
@@ -343,7 +343,7 @@
               <ImagePlaceholder 
                 :initialSrc="galleryPhoto"
                 label="Foto Galería Novios"
-                sublabel="Katherine & Enrry"
+                sublabel="Enrry & Katherine"
                 aspectRatio="3/4"
                 shape="rect"
                 borderStyle="rose"
@@ -362,7 +362,7 @@
             :class="{ 'is-active': galleryPhoto === imgSrc }"
             @click="selectGalleryPhoto(imgSrc, idx)"
           >
-            <img :src="imgSrc" alt="Momento Katherine y Enrry" />
+            <img :src="imgSrc" alt="Momento Enrry y Katherine" />
           </div>
         </div>
       </section>
@@ -411,7 +411,7 @@
               <div class="account-badge yape-badge">
                 <span>YAPE</span>
               </div>
-              <span class="account-owner">Katherine & Enrry</span>
+              <span class="account-owner">Enrry & Katherine</span>
             </div>
             <div class="account-row">
               <div class="account-info">
@@ -536,7 +536,7 @@
       <!-- FOOTER CREDITS -->
       <footer class="invitation-footer">
         <div class="footer-gold-line"></div>
-        <p class="footer-blessing">Katherine Francis & Enrry Alberto</p>
+        <p class="footer-blessing">Enrry Alberto & Katherine Francis</p>
         <p class="footer-date">21 • 11 • 2026</p>
       </footer>
     </main>
@@ -602,7 +602,7 @@ const selectGalleryPhoto = (imgSrc, idx) => {
 };
 
 const guestName = ref('Familia / Invitado Especial');
-const adultPasses = ref(2);
+const adultPasses = ref(1);
 const childPasses = ref(0);
 
 const isRsvpModalOpen = ref(false);

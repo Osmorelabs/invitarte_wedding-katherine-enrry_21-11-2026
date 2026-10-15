@@ -6,7 +6,7 @@
           <button class="close-btn" @click="closeModal" aria-label="Cerrar modal">&times;</button>
           
           <div class="modal-header">
-            <span class="modal-subtitle">Boda Katherine & Enrry</span>
+            <span class="modal-subtitle">Boda Enrry & Katherine</span>
             <h2 class="modal-title">Confirmar Asistencia</h2>
             <p class="planner-subtitle">
               Wedding Planner: <strong>Amparo Ortiz</strong> (+51 991 399 575)
@@ -131,7 +131,7 @@ function handleSubmit() {
 
 function sendWhatsApp() {
   const statusText = form.attending === 'yes' ? '¡Sí, asistiré!' : 'Lamentablemente no podré asistir.';
-  let text = `¡Hola Amparo Ortiz! ✨\nConfirmo mi asistencia a la Boda de Katherine y Enrry (21 Nov 2026).\n\n` +
+  let text = `¡Hola Amparo Ortiz! ✨\nConfirmo mi asistencia a la Boda de Enrry y Katherine (21 Nov 2026).\n\n` +
              `*Nombre:* ${form.name}\n` +
              `*Respuesta:* ${statusText}\n`;
              
